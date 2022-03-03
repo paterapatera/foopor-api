@@ -1,8 +1,12 @@
+import { PrismaService } from './_Common'
+import { ValidationPipe } from '@nestjs/common'
 import { NestFactory } from '@nestjs/core'
-import { AppModule } from 'src/Main/Module/Module'
+import { MainModule } from 'src/MainModule'
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule)
+  const app = await NestFactory.create(MainModule)
+  app.get(PrismaService).enableShutdownHooks(app)
+  app.useGlobalPipes(new ValidationPipe())
   await app.listen(3000)
 }
 bootstrap()

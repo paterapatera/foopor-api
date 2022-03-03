@@ -9,4 +9,6 @@ COPY package.json pnpm-lock.yaml ./
 FROM base as dev
 
 RUN pnpm install --frozen-lockfile
+COPY prisma ./prisma/
+RUN pnpx prisma generate
 CMD [ "pnpm", "run", "start:dev" ]

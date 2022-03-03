@@ -13,7 +13,7 @@ flowchart TD
   Event --- Post & Comment
 ```
 
-## 認証コンテキスト
+## 認証ドメイン
 
 ```mermaid
 classDiagram
